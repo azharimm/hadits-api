@@ -4,6 +4,7 @@ const helmet = require("helmet");
 const cors = require("cors");
 
 require("dotenv").config();
+require("./db/connection");
 
 const middlewares = require("./middlewares");
 const api = require("./api");
