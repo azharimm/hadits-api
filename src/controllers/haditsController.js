@@ -88,10 +88,17 @@ exports.range = async (req, res) => {
     }
 };
 
-   
-
-exports.detail = (req, res) => {
-    res.json({
-        message: "detail here",
-    });
+exports.detail = async (req, res) => {
+    try {
+        let book = req.params.book;
+        let number = req.params.number;
+        checkBook = await Book.findOne({ id: book });
+        if(!checkBook) return errorJson(res, 'Book not found!', 404);
+        const hadith = await Hadit.findOne({ book, number }).select({"_id": 0, "arab": 1, "id": 1, "number": 1})
+        return json(res, {
+            hadith
+        });
+    } catch (error) {
+        return errorJson(res, error);
+    }
 };

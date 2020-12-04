@@ -7,7 +7,7 @@ require("dotenv").config();
 require("./db/connection");
 
 const middlewares = require("./middlewares");
-const api = require("./api");
+const haditsRouter = require("./routes/hadits");
 
 const app = express();
 
@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
     });
 });
 
-app.use("/api/v1", api);
+app.use("/books", haditsRouter);
 
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
