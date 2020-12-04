@@ -1,47 +1,42 @@
-# Simple Express API Starter
-
-Includes API Server utilities:
-
-* [morgan](https://www.npmjs.com/package/morgan)
-  * HTTP request logger middleware for node.js
-* [helmet](https://www.npmjs.com/package/helmet)
-  * Helmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help!
-* [dotenv](https://www.npmjs.com/package/dotenv)
-  * Dotenv is a zero-dependency module that loads environment variables from a `.env` file into `process.env`
-
-Development utilities:
-
-* [nodemon](https://www.npmjs.com/package/nodemon)
-  * nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
-* [eslint](https://www.npmjs.com/package/eslint)
-  * ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
-* [mocha](https://www.npmjs.com/package/mocha)
-  * ☕️ Simple, flexible, fun JavaScript test framework for Node.js & The Browser ☕️
-* [supertest](https://www.npmjs.com/package/supertest)
-  * HTTP assertions made easy via superagent.
-
-## Setup
-
+# Phone Specifications API
+The data is based on gsmarena site
+## 1. List Books
 ```
-npm install
+[ENDPOINT] /books
+```
+```
+[GET] https://api-hadits.azharimm.tk/books
 ```
 
-## Lint
-
+## 2. List Hadits
 ```
-npm run lint
+[ENDPOINT] /books/:id
+```
+```
+[GET] https://api-hadits.azharimm.tk/books/muslim?page=1&limit=10
+```
+### Query params
+| params        | desc | required |
+| --------------- |:---------:|:---------:|
+| page | page of the data | `no` |
+| limit | limit data being showed | `no` |
+
+## 3. Detail Hadits
+```
+[ENDPOINT] /books/:id/:number
+```
+```
+[GET] https://api-hadits.azharimm.tk/books/muslim/1
 ```
 
-## Test
-
+## 4. Range Hadits
 ```
-npm run test
+[ENDPOINT] /range/:id
 ```
-
-## Development
-
 ```
-npm run dev
+[GET] https://api-hadits.azharimm.tk/range/muslim?range=5-10
 ```
-
-Core: [w3c](https://github.com/w3cj)
+### Query params
+| params        | desc | required |
+| --------------- |:---------:|:---------:|
+| range | range number | `yes` |
