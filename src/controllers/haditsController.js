@@ -41,6 +41,55 @@ exports.show = async (req, res) => {
     }
 };
 
+exports.range = async (req, res) => {
+    try {
+        let book = req.params.book;
+        checkBook = await Book.findOne({ id: book });
+        if(!checkBook) return errorJson(res, 'Book not found!', 404);
+
+        const range = req.query.range || "1-10";
+        const startRange = parseInt(range.split('-')[0]);
+        const endRange = parseInt(range.split('-')[1]);
+
+        if(!startRange || !endRange) {
+            return errorJson(res, 'Range must be numbers', 400);
+        }
+
+        if(endRange - startRange < 0) {
+            return errorJson(res, `Range format is invalid, try ${endRange}-${startRange}`, 400);
+        }
+
+        
+        const query = { 
+            book,
+            number: {$gte: startRange, $lte: endRange},
+        }
+        
+        const total = await Hadit.find(query).countDocuments();
+        if(total > 150) {
+            return errorJson(res, `Range format is invalid, Max range 150 number`, 400);
+        }
+        const hadits = await Hadit.find(query)
+        .select({"_id": 0, "arab": 1, "id": 1, "number": 1})
+        .sort([['number', 1]])
+        .exec()
+
+        if(total === 0) return errorJson(res, `Hadith not found`, 404);
+
+        return json(res, {
+            start: startRange,
+            end: endRange,
+            total,
+            book,
+            hadits
+        });
+    } catch (error) {
+        return errorJson(res, error);
+    }
+};
+
+   
+
 exports.detail = (req, res) => {
     res.json({
         message: "detail here",
