@@ -8,6 +8,7 @@ require("./db/connection");
 
 const middlewares = require("./middlewares");
 const haditsRouter = require("./routes/hadits");
+const indexRouter = require("./routes/index");
 
 const app = express();
 
@@ -16,12 +17,7 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
-    res.json({
-        message: "Hi There!",
-    });
-});
-
+app.get("/", indexRouter);
 app.use("/books", haditsRouter);
 
 app.use(middlewares.notFound);
