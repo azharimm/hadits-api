@@ -1,5 +1,5 @@
-# Phone Specifications API
-The data is based on gsmarena site
+# Hadits 9 Imam API
+
 ## 1. List Books
 ```
 [ENDPOINT] /books
