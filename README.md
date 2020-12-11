@@ -1,4 +1,4 @@
-# API Hadits 9 Imam
+# Hadits 9 Imam API
 
 ## 1. List Books
 ```
