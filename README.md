@@ -34,7 +34,7 @@
 [ENDPOINT] /range/:id
 ```
 ```
-[GET] https://api-hadits.azharimm.tk/range/muslim?range=5-10
+[GET] https://api-hadits.azharimm.tk/books/range/muslim?range=5-10
 ```
 ### Query params
 | params        | desc | required |
