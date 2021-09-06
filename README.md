@@ -5,7 +5,7 @@
 [ENDPOINT] /books
 ```
 ```
-[GET] https://api-hadits.azharimm.tk/books
+[GET] https://api-hadits.azharimm.site/books
 ```
 
 ## 2. List Hadits
@@ -13,7 +13,7 @@
 [ENDPOINT] /books/:id
 ```
 ```
-[GET] https://api-hadits.azharimm.tk/books/muslim?page=1&limit=10
+[GET] https://api-hadits.azharimm.site/books/muslim?page=1&limit=10
 ```
 ### Query params
 | params        | desc | required |
@@ -26,7 +26,7 @@
 [ENDPOINT] /books/:id/:number
 ```
 ```
-[GET] https://api-hadits.azharimm.tk/books/muslim/1
+[GET] https://api-hadits.azharimm.site/books/muslim/1
 ```
 
 ## 4. Range Hadits
@@ -34,7 +34,7 @@
 [ENDPOINT] /range/:id
 ```
 ```
-[GET] https://api-hadits.azharimm.tk/range/muslim?range=5-10
+[GET] https://api-hadits.azharimm.site/range/muslim?range=5-10
 ```
 ### Query params
 | params        | desc | required |

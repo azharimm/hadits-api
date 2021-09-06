@@ -4,8 +4,8 @@
   "description": "Hadits API",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "lint": "eslint --fix src",
     "test": "mocha --exit"
   },
